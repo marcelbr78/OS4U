@@ -139,9 +139,7 @@ export class OrdersController {
             'Content-Disposition': `attachment; filename="OS-${order.protocol}.pdf"`,
             'Content-Length': buffer.length,
         });
-        res.end(buffer);
     }
-}
 
     @Get(':id/conversation')
     async getConversation(@Param('id') id: string, @Req() req: any) {
@@ -153,3 +151,4 @@ export class OrdersController {
         await this.conversationService.migrateFromHistory(id);
         return this.conversationService.getConversation(id);
     }
+}

@@ -111,10 +111,8 @@ export class ReportsController {
             avgRepairHours: Math.round(avgRepairHours),
             topBrands,
             dailyChart,
-            monthlyRevenue,
         };
     }
-}
 
     @Get('technicians')
     async getTechnicianRanking(@Query('from') from: string, @Query('to') to: string, @Req() req: any) {
@@ -209,4 +207,5 @@ export class ReportsController {
         const rate = total > 0 ? (warranty / total * 100) : 0;
         return { total, warrantyReturns: warranty, rate: rate.toFixed(1) };
     }
+}
 }
